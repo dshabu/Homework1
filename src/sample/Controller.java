@@ -67,9 +67,10 @@ public class Controller implements Initializable {
             String lastName = lastNameField.getText();
             boolean activeStatus = activeCheckbox.isSelected();
 
-            Employee employee = new Employee(firstName, lastName, activeStatus);
-
-            employeeList.add(employee);
+            if (!firstName.isBlank() && !lastName.isBlank()) {
+                Employee employee = new Employee(firstName, lastName, activeStatus);
+                employeeList.add(employee);
+            }
         });
 
         deleteEmployeeBtn.setOnAction(event -> {
